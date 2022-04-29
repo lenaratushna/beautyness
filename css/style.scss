@@ -46,7 +46,6 @@ body {
     @include adaptiv-font(18, 14);
     font-weight: 400;
     color: $mainTextColor;
-    line-height: 150%;
     background-color: #FFF;
 }
 
@@ -54,6 +53,22 @@ body {
     max-width: 1230px;
     margin: 0 auto;
 	padding: 0 15px;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    @include adaptiv-font(45, 20);
+    letter-spacing: 0.45px;
+    line-height: 130%;
+    span {
+        display: block;
+        font-family: 'Manrope';
+        color: $mainColor;
+        @include adaptiv-font(15, 11);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        line-height: 150%;
+    }
 }
 
 .colored-btn {
@@ -67,14 +82,20 @@ body {
     text-transform: uppercase;
 }
 
-@media (max-width: 1199px) {
-    .colored-btn {
-        padding: 10px 20px;
-    }
+.outline-btn {
+    display: inline-flex;
+    padding: 19px 30px;
+    border: 2px solid $mainColor;
+    font-size: 14px;
+    color: $mainTextColor;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
 }
 
-.outline-btn {
-
+@media (max-width: 1199px) {
+    .colored-btn, .outline-btn {
+        padding: 10px 20px;
+    }
 }
 
 .header {
@@ -249,6 +270,12 @@ body {
     }
 }
 
+@media(max-width: 1199px) {
+    .intro {
+        padding: 100px 0;
+    }
+}
+
 @media(max-width: 581px) {
     .intro {
         &__img {
@@ -257,20 +284,124 @@ body {
     }
 }
 
-@media(max-width: 1199px) {
-    .intro {
-        padding: 100px 0;
+.services {
+    padding: 100px 0;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        text-align: center;
+        max-width: 630px;
+        margin-bottom: 70px;
+    }
+
+    &__row {
+        width: 100%;
+        display: flex;
+    }
+
+    &__img {
+        font-size: 0;
+        flex-basis: 50%;
+        max-width: 600px;
+        img {
+            width: 100%;
+        }
+    }
+
+    &__list {
+        flex-basis: 50%;
+        &.right-list {
+            padding: 60px 0 60px 60px;
+        }
+        &.left-list {padding: 60px 60px 60px 0;}
+    }
+
+    &__button {
+        margin-top: 70px;
+    }
+}
+
+.service {
+    padding-bottom: 15px;
+    border-bottom: 1px solid $mainColor;
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Playfair Display', serif;
+        @include adaptiv-font(22, 15);
+        border-bottom: 3px solid $mainTextColor;
+        span {
+            font-family: 'Manrope', sans-serif;  
+            @include adaptiv-font(18, 11);
+        }
+    }
+    &__info {
+        @include adaptiv-font(18, 12);
+        color: $secondaryTextColor;
     }
 }
 
 @media(max-width: 991px) {
-    .intro {
+    .services {
+        &__row {
+            flex-direction: column;
+        }
+        &__img {
+            display: none;
+        }
+        &__list {
+            &.right-list {
+                padding: 30px;
+            }
+            &.left-list {padding: 30px}
+        }
+    }
+}
+
+@media(max-width: 767px) {
+    .services {
+        &__title {
+            margin-bottom: 40px;
+        }
+        &__button {
+            margin-top: 40px;
+        }
+    }
+}
+
+@media(max-width: 480px) { 
+    .services {
+        &__list {
+            &.right-list {
+                padding: 10px;
+            }
+            &.left-list {padding: 10px}
+        }
+    }
+}
+
+
+
+
+
+
+
+@media(max-width: 991px) {
+    .intro, .services {
         padding: 70px 0;
     }
 }
 
 @media(max-width: 767px) {
-    .intro {
+    .intro, .services {
         padding: 50px 0;
     }
 }
