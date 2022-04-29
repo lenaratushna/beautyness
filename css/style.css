@@ -11,6 +11,9 @@
 ul li {
   list-style: none; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400; }
+
 :focus,
 :active {
   outline: none; }
@@ -48,10 +51,6 @@ body {
   .colored-btn {
     padding: 10px 20px; } }
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   padding: 23px 0;
   background-color: #FFF;
   z-index: 100; }
@@ -152,7 +151,7 @@ body {
             flex-direction: column;
     width: 100vw;
     padding: 2em;
-    background-color: rgba(235, 243, 245, 0.8);
+    background-color: #fff;
     -webkit-transform: rotate(-180deg);
             transform: rotate(-180deg);
     -webkit-transform-origin: 0% 0%;
@@ -171,5 +170,60 @@ body {
     position: absolute; }
   .header__phone_text {
     display: none; } }
+.intro {
+  padding: 120px 0;
+  background-color: #EBF3F5; }
+  .intro__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 10px; }
+  .intro__wrapper {
+    max-width: 483px; }
+  .intro__title {
+    font-family: 'Playfair Display', serif;
+    font-size: calc( 30px + 25 * ((100vw - 320px) / 1120) );
+    line-height: 130%;
+    letter-spacing: 0.66px;
+    margin-bottom: 19px; }
+    .intro__title span {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 6px;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      font-size: calc( 11px + 4 * ((100vw - 320px) / 1120) );
+      font-family: 'Manrope';
+      color: #5C8692;
+      letter-spacing: 1.5px;
+      line-height: 150%;
+      text-transform: uppercase; }
+  .intro__text {
+    margin-bottom: 26px; }
+  .intro__img {
+    max-width: 622px; }
+    .intro__img img {
+      width: 100%; }
+
+@media (max-width: 581px) {
+  .intro__img {
+    display: none; } }
+@media (max-width: 1199px) {
+  .intro {
+    padding: 100px 0; } }
+@media (max-width: 991px) {
+  .intro {
+    padding: 70px 0; } }
+@media (max-width: 767px) {
+  .intro {
+    padding: 50px 0; } }
 
 /*# sourceMappingURL=style.css.map */
