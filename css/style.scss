@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Playfair+Display&display=swap');
+
+$mainColor: #5C8692;
+$mainTextColor: #141414;
+$secondaryTextColor: #555555;
+$bgColor: #EBF3F5;
+$maxWidth: 1440;
+
+@mixin adaptiv-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$maxWidth: $maxWidth - 320;
+	font-size: calc(
+		#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
+	);
+}
+
+*,
+*:before,
+*:after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+ul li {
+	list-style: none;
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    @include adaptiv-font(18, 14);
+    font-weight: 400;
+    color: $mainTextColor;
+    line-height: 150%;
+    background-color: #FFF;
+}
+
+//font-family: 'Playfair Display', serif;
+
+.container {
+    max-width: 1230px;
+    margin: 0 auto;
+	padding: 0 15px;
+}
+
+.colored-btn {
+    display: inline-flex;
+    gap: 10px;
+    padding: 19px 30px;
+    background-color: $mainColor;
+    font-size: 14px;
+    color: #FFF;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1199px) {
+    .colored-btn {
+        padding: 10px 20px;
+    }
+}
+
+.outline-btn {
+
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 23px 0;
+    background-color: #FFF;
+    z-index: 100;
+    &__container {
+        max-width: 1410px;
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    &__col {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    &__logo {
+        max-width: 192px;
+        img {
+            width: 100%;
+        }
+    }
+
+    &__phone {
+        display: flex;
+        align-items: center;
+        @include adaptiv-font(16, 12);
+        color: $mainTextColor;
+        &_icon {
+            max-width: 24px;
+            margin-right: 10px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .menu {
+        &__list {
+            display: flex;
+            gap: 2em;
+            align-items: center
+        }
+    
+        &__link {
+            @include adaptiv-font(17, 13);
+            color: $mainTextColor;
+            transition: all 0.3s ease;
+            &:hover, &:focus, &:active {
+                color: $mainColor;  
+            }
+        }
+        &__burger {
+            display: none;
+            cursor: pointer;
+            max-width: 40px;
+            align-items: center;
+            
+        }
+        &__social-media {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            li a {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 1199px) {
+    .header {
+        &__container {
+            flex-direction: column;
+        }
+        .menu {
+            margin-right: auto;
+        }
+    }
+}
+
+@media (max-width: 691px) {
+    .header {
+        .menu {
+            &__list {
+                position: absolute;
+                align-items: flex-start;
+                top: 150px;
+                left: 0;
+                flex-direction: column;
+                width: 100vw;
+                padding: 2em;
+                background-color: rgba($bgColor, 0.8);
+                transform: rotate(-180deg);
+                transform-origin: 0% 0%; 
+                transition: all 0.5s ease;
+                &.active {
+                    transform: rotate(0);
+                }
+            }
+            &__burger {
+                display: flex;
+            }
+        }
+    }
+}
+
+@media (max-width: 451px) {
+    .header {
+        &__social-media {
+            position: absolute;
+        }
+
+        &__phone_text { 
+            display: none;
+        }
+    }
+}
