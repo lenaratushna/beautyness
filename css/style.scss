@@ -4,6 +4,7 @@ $mainColor: #5C8692;
 $mainTextColor: #141414;
 $secondaryTextColor: #555555;
 $bgColor: #EBF3F5;
+$darkBgColor: #1E2C30;
 $maxWidth: 1440;
 
 @mixin adaptiv-font($pcSize, $mobSize) {
@@ -80,6 +81,10 @@ body {
     color: #FFF;
     letter-spacing: 1.4px;
     text-transform: uppercase;
+    transition: all 0.3s ease ;
+    &:hover, &:focus, &:active {
+        transform: scale(0.95);
+    }
 }
 
 .outline-btn {
@@ -87,9 +92,14 @@ body {
     padding: 19px 30px;
     border: 2px solid $mainColor;
     font-size: 14px;
+    background-color: #FFF;
     color: $mainTextColor;
     letter-spacing: 1.4px;
     text-transform: uppercase;
+    transition: all 0.3s ease ;
+    &:hover, &:focus, &:active {
+        transform: scale(0.95);
+    }
 }
 
 @media (max-width: 1199px) {
@@ -388,20 +398,108 @@ body {
     }
 }
 
+.testimonials {
+    padding: 100px 0;
+    background-color: $bgColor;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
+    &__title {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+}
+
+.testimonial {
+    max-width: 600px;
+    &__text {
+        background-color: #fff;
+        padding: 30px 30px 25px;
+        @include adaptiv-font(19, 14);
+    }
+
+    .person {
+        background-color: $darkBgColor;
+        padding: 20px 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: #FFF;        
+        &__img {
+            max-width: 75px;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        &__rating {
+            margin-bottom: 3px;
+        }
+        &__name {
+            @include adaptiv-font(20, 15);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 7px;
+        }
+        &__location {
+            @include adaptiv-font(14, 10);
+        }
+        &__decor {
+            max-width: 70px;
+            margin-left: auto;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media(max-width: 991px) {
+    .testimonials {
+        &__wrapper {
+            flex-direction: column;
+        }
+    }
+}
+
+@media(max-width: 424px) {
+    .testimonial {
+        &__text {
+            padding: 20px;
+        }
+        .person {
+            padding: 20px;
+            &__img {
+                max-width: 65px;
+            }
+            &__decor {
+                display: none;
+            }
+        }
+    }
+}
 
 
 
 
 
 @media(max-width: 991px) {
-    .intro, .services {
+    .intro, .services, .testimonials {
         padding: 70px 0;
     }
 }
 
 @media(max-width: 767px) {
-    .intro, .services {
+    .intro, .services, .testimonials {
         padding: 50px 0;
     }
 }
