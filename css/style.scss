@@ -488,18 +488,113 @@ body {
     }
 }
 
+.benefits {
+    padding: 100px 0;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
+    &__title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 50px 40px;
+    }
+}
+
+.benefit {
+    &__title {
+        font-family: 'Playfair Display', serif;
+        @include adaptiv-font(26, 18);
+        line-height: 140%;
+        margin-bottom: 11px;
+        &::before {
+            display: flex;
+            content: '';
+            background: url('../img/check-mark.svg') no-repeat center center / cover;
+            width: 94px;
+            height: 94px; 
+            margin-bottom: 14px;
+        }
+    }
+
+    &__text {
+        @include adaptiv-font(18, 14);
+        line-height: 150%;
+    }
+}
+
+@media(max-width: 1199px) {
+    .benefit {
+        &__title {
+            &::before {
+                width: 64px;
+                height: 64px; 
+            }
+        }
+    }
+}
+
+@media(max-width: 921px) {
+    .benefits {
+        &__title {
+            margin-bottom: 40px;
+        }
+        &__wrapper {
+            grid-template-columns: repeat(2,1fr);
+            gap: 30px 40px;
+        }
+    }
+}
+
+@media(max-width:767px) {
+    .benefit {
+        &__title {
+            margin-bottom: 4px;
+            &::before {
+                width: 44px;
+                height: 44px;
+                margin-bottom: 6px;
+            }
+        }
+    }
+}
+
+@media(max-width: 567px) {
+    .benefits {
+        &__wrapper {
+            grid-template-columns: repeat(1,1fr);
+            gap: 30px 40px;
+        }
+    }
+    .benefit {
+        padding-bottom: 6px;
+        border-bottom: 1px solid $mainColor;
+        &__title {
+            &::before {
+                width: 34px;
+                height: 34px; 
+            }
+        }
+    }
+}
 
 
 
 @media(max-width: 991px) {
-    .intro, .services, .testimonials {
+    .intro, .services, .testimonials, .benefits {
         padding: 70px 0;
     }
 }
 
 @media(max-width: 767px) {
-    .intro, .services, .testimonials {
+    .intro, .services, .testimonials, .benefits {
         padding: 50px 0;
     }
 }

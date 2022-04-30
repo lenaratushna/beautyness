@@ -420,11 +420,78 @@ body {
       max-width: 65px; }
     .testimonial .person__decor {
       display: none; } }
+.benefits {
+  padding: 100px 0; }
+  .benefits__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .benefits__title {
+    text-align: center;
+    margin-bottom: 60px; }
+  .benefits__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 40px; }
+
+.benefit__title {
+  font-family: 'Playfair Display', serif;
+  font-size: calc( 18px + 8 * ((100vw - 320px) / 1120) );
+  line-height: 140%;
+  margin-bottom: 11px; }
+  .benefit__title::before {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    content: '';
+    background: url("../img/check-mark.svg") no-repeat center center/cover;
+    width: 94px;
+    height: 94px;
+    margin-bottom: 14px; }
+.benefit__text {
+  font-size: calc( 14px + 4 * ((100vw - 320px) / 1120) );
+  line-height: 150%; }
+
+@media (max-width: 1199px) {
+  .benefit__title::before {
+    width: 64px;
+    height: 64px; } }
+@media (max-width: 921px) {
+  .benefits__title {
+    margin-bottom: 40px; }
+  .benefits__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 40px; } }
+@media (max-width: 767px) {
+  .benefit__title {
+    margin-bottom: 4px; }
+    .benefit__title::before {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 6px; } }
+@media (max-width: 567px) {
+  .benefits__wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px 40px; }
+
+  .benefit {
+    padding-bottom: 6px;
+    border-bottom: 1px solid #5C8692; }
+    .benefit__title::before {
+      width: 34px;
+      height: 34px; } }
 @media (max-width: 991px) {
-  .intro, .services, .testimonials {
+  .intro, .services, .testimonials, .benefits {
     padding: 70px 0; } }
 @media (max-width: 767px) {
-  .intro, .services, .testimonials {
+  .intro, .services, .testimonials, .benefits {
     padding: 50px 0; } }
 
 /*# sourceMappingURL=style.css.map */
