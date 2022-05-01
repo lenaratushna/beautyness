@@ -37,6 +37,10 @@ h1,h2,h3,h4,h5,h6 {
 	outline: none;
 }
 
+textarea {
+    resize: none;
+}
+
 a,
 a:visited {
 	text-decoration: none;
@@ -527,6 +531,7 @@ body {
     &__text {
         @include adaptiv-font(18, 14);
         line-height: 150%;
+        color: $secondaryTextColor;
     }
 }
 
@@ -585,16 +590,204 @@ body {
     }
 }
 
+.discount {
+    padding: 100px 0;
+    background-color: $bgColor;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 70px;
+    }
+
+    &__col {
+        flex: 1 1 555px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        max-width: 500px;
+        margin-bottom: 18px;
+    }
+
+    &__text {
+        @include adaptiv-font(18, 14);
+        color: $secondaryTextColor;
+        margin-bottom: 30px;
+    }
+
+    &__box {
+        display: flex;
+        .info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #fff;
+            padding: 32px;
+            border: 1px solid $mainColor;
+            &__mail, &__phone {
+                margin-left: 50px;
+                font-size: 14px;
+                position: relative;
+                &::before {
+                    content: '';
+                    display: block;
+                    margin-right: 20px;
+                    width: 30px;
+                    height: 6px;
+                    background: url('../img/dots.svg') no-repeat;
+                    position: absolute;
+                    top: 8px;
+                    left: -50px;
+                } 
+                span {
+                    
+                    text-transform: uppercase;
+                }
+                a {
+                    color: inherit;
+                }
+            }
+        }
+        .discount-box {
+            padding: 1.2em 1em;
+            background-color: $darkBgColor;
+            color: #FFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            @include adaptiv-font(15, 11);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            span {
+                @include adaptiv-font(55, 20);
+            }
+        }
+    }
+
+    .form {
+        flex: 1 1 555px;
+        background-color: #FFF;
+        box-shadow: 1px 0px 18px rgba(0, 0, 0, 0.2);
+        padding: 65px 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        &__label {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            border: 2px solid $mainColor;
+            input, textarea {
+                color: $secondaryTextColor;
+                padding: 5px;
+                align-self: center;
+                font-family: inherit;
+                font-size: 14px;
+                height: 100%;
+                width: 100%;
+            }
+            img {
+                width: 41px;
+                margin-bottom: auto;
+            }
+        }
+        &__button {
+            padding: 19px 30px;
+            background-color: $mainColor;
+            font-size: 14px;
+            color: #FFF;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    }
+}
 
 
 @media(max-width: 991px) {
-    .intro, .services, .testimonials, .benefits {
+    .discount {
+        .form {
+            padding: 35px 30px;
+            gap: 15px;
+            &__label { 
+                img {
+                    width: 31px;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 959px) {
+    .discount {
+        &__container {
+            flex-direction: column;
+            gap: 40px;
+        }
+        &__col {
+            flex: 1 1 auto;
+            align-items: center;
+        }
+        &__title {
+            text-align: center;
+        }
+        .form {
+            flex: 1 1 auto;
+            width: 555px;
+        }
+    }
+}
+
+@media(max-width: 585px) {
+    .discount {
+        &__box {
+            .info-box {
+                gap: 8px;
+                padding: 22px;
+                border: 1px solid $mainColor;
+                &__mail, &__phone {
+                    margin-left: 0;
+                    &::before {
+                        display: none;
+                    } 
+                }
+            }
+        }
+        .form {
+            width: 100%;
+        }
+    }
+}
+
+@media(max-width: 340px) {
+    .discount {
+        &__box {
+            flex-direction: column;
+        }
+        .form {
+            padding: 15px;
+            gap: 10px;
+            &__label { 
+                img {
+                    width: 21px;
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width: 991px) {
+    .intro, .services, .testimonials, .benefits, .discount {
         padding: 70px 0;
     }
 }
 
 @media(max-width: 767px) {
-    .intro, .services, .testimonials, .benefits {
+    .intro, .services, .testimonials, .benefits, .discount {
         padding: 50px 0;
     }
 }

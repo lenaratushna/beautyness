@@ -18,6 +18,9 @@ h1, h2, h3, h4, h5, h6 {
 :active {
   outline: none; }
 
+textarea {
+  resize: none; }
+
 a,
 a:visited {
   text-decoration: none; }
@@ -457,7 +460,8 @@ body {
     margin-bottom: 14px; }
 .benefit__text {
   font-size: calc( 14px + 4 * ((100vw - 320px) / 1120) );
-  line-height: 150%; }
+  line-height: 150%;
+  color: #555555; }
 
 @media (max-width: 1199px) {
   .benefit__title::before {
@@ -487,11 +491,194 @@ body {
     .benefit__title::before {
       width: 34px;
       height: 34px; } }
+.discount {
+  padding: 100px 0;
+  background-color: #EBF3F5; }
+  .discount__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 70px; }
+  .discount__col {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 555px;
+            flex: 1 1 555px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+  .discount__title {
+    max-width: 500px;
+    margin-bottom: 18px; }
+  .discount__text {
+    font-size: calc( 14px + 4 * ((100vw - 320px) / 1120) );
+    color: #555555;
+    margin-bottom: 30px; }
+  .discount__box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .discount__box .info-box {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      gap: 15px;
+      background-color: #fff;
+      padding: 32px;
+      border: 1px solid #5C8692; }
+      .discount__box .info-box__mail, .discount__box .info-box__phone {
+        margin-left: 50px;
+        font-size: 14px;
+        position: relative; }
+        .discount__box .info-box__mail::before, .discount__box .info-box__phone::before {
+          content: '';
+          display: block;
+          margin-right: 20px;
+          width: 30px;
+          height: 6px;
+          background: url("../img/dots.svg") no-repeat;
+          position: absolute;
+          top: 8px;
+          left: -50px; }
+        .discount__box .info-box__mail span, .discount__box .info-box__phone span {
+          text-transform: uppercase; }
+        .discount__box .info-box__mail a, .discount__box .info-box__phone a {
+          color: inherit; }
+    .discount__box .discount-box {
+      padding: 1.2em 1em;
+      background-color: #1E2C30;
+      color: #FFF;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      font-size: calc( 11px + 4 * ((100vw - 320px) / 1120) );
+      letter-spacing: 1.5px;
+      text-transform: uppercase; }
+      .discount__box .discount-box span {
+        font-size: calc( 20px + 35 * ((100vw - 320px) / 1120) ); }
+  .discount .form {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 555px;
+            flex: 1 1 555px;
+    background-color: #FFF;
+    -webkit-box-shadow: 1px 0px 18px rgba(0, 0, 0, 0.2);
+            box-shadow: 1px 0px 18px rgba(0, 0, 0, 0.2);
+    padding: 65px 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px; }
+    .discount .form__label {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      width: 100%;
+      border: 2px solid #5C8692; }
+      .discount .form__label input, .discount .form__label textarea {
+        color: #555555;
+        padding: 5px;
+        -ms-flex-item-align: center;
+            align-self: center;
+        font-family: inherit;
+        font-size: 14px;
+        height: 100%;
+        width: 100%; }
+      .discount .form__label img {
+        width: 41px;
+        margin-bottom: auto; }
+    .discount .form__button {
+      padding: 19px 30px;
+      background-color: #5C8692;
+      font-size: 14px;
+      color: #FFF;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      cursor: pointer; }
+
 @media (max-width: 991px) {
-  .intro, .services, .testimonials, .benefits {
+  .discount .form {
+    padding: 35px 30px;
+    gap: 15px; }
+    .discount .form__label img {
+      width: 31px; } }
+@media (max-width: 959px) {
+  .discount__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 40px; }
+  .discount__col {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .discount__title {
+    text-align: center; }
+  .discount .form {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    width: 555px; } }
+@media (max-width: 585px) {
+  .discount__box .info-box {
+    gap: 8px;
+    padding: 22px;
+    border: 1px solid #5C8692; }
+    .discount__box .info-box__mail, .discount__box .info-box__phone {
+      margin-left: 0; }
+      .discount__box .info-box__mail::before, .discount__box .info-box__phone::before {
+        display: none; }
+  .discount .form {
+    width: 100%; } }
+@media (max-width: 340px) {
+  .discount__box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+  .discount .form {
+    padding: 15px;
+    gap: 10px; }
+    .discount .form__label img {
+      width: 21px; } }
+@media (max-width: 991px) {
+  .intro, .services, .testimonials, .benefits, .discount {
     padding: 70px 0; } }
 @media (max-width: 767px) {
-  .intro, .services, .testimonials, .benefits {
+  .intro, .services, .testimonials, .benefits, .discount {
     padding: 50px 0; } }
 
 /*# sourceMappingURL=style.css.map */
