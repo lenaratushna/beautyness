@@ -790,6 +790,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     &__title {
@@ -800,12 +801,14 @@ body {
     &__wrapper {
         display: grid;
         grid-template-columns: repeat(3,1fr);
+        justify-content: center;
         gap: 20px;
         margin-bottom: 50px;
     }
 
     .post {
         width: 100%;
+        color: inherit;
         &__img {
             font-size: 0;
             img {
@@ -855,8 +858,161 @@ body {
 @media(max-width: 640px) {
     .blog {
         &__wrapper {
+            grid-template-columns: repeat(1,80%);
+        }
+    }
+}
+
+@media(max-width: 340px) {
+    .blog {
+        &__wrapper {
             grid-template-columns: repeat(1,1fr);
         }
+    }
+}
+
+.footer {
+    padding: 70px 0;
+    background-color: $darkBgColor;
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 50px;
+        color: #FFF;
+        &:first-child {
+            gap: 20px 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 40px;
+        }
+    }
+
+    &__logo {
+        max-width: 298px;
+        img {
+            width: 100%;
+        }
+    }
+
+    &__social-media {
+        display: flex;
+        gap: 10px;
+        a {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid $mainColor;
+            transition: all 0.3s ease ;
+            &:hover, &:focus, &:active {
+                background-color: $mainColor;
+            }
+        }
+    }
+
+    .menu {
+        &__list {
+            li:not(.footer__title, :last-child) {
+                margin-bottom: 9px;
+            }
+        }
+        &__link {
+            color: inherit;
+            @include adaptiv-font(17, 13);
+            line-height: 170%;
+            letter-spacing: 0.17px;
+            transition: all 0.3s ease ;
+            &:hover, &:focus, &:active {
+                color: $mainColor;
+            }
+        }
+    }
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        @include adaptiv-font(22, 16);
+        margin-bottom: 24px;
+        letter-spacing: 0.352px;
+    }
+
+    &__info {
+        @include adaptiv-font(17, 13);
+        &_item {
+            display: flex;
+            span:first-child {
+                width: 90px;
+            }
+            a {
+                color: inherit;
+                transition: all 0.3s ease ;
+                &:hover, &:focus, &:active {
+                    color: $mainColor;
+                }
+            }
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &__hours {
+        @include adaptiv-font(17, 13);
+        p:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media(max-width: 767px) {
+    .footer {
+        &__row {
+            justify-content: flex-start;
+            &:first-child {
+                justify-content: space-between;
+                padding-bottom: 20px;
+            }
+        }
+        &__logo {
+            max-width: 192px;
+            img {
+                width: 100%;
+            }
+        }
+        &__social-media {
+            a {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    }
+}
+
+@media(max-width: 480px) {
+    .footer {
+        &__info {
+            @include adaptiv-font(17, 13);
+            &_item {
+                span:first-child {
+                    width: 74px;
+                }
+            }
+        }
+    }
+}
+
+.copy {
+    padding: 20px 0;
+    background-color: #111E22;
+    &__container {
+        text-align: center;
+    }
+
+    &__text {
+        @include adaptiv-font(15, 11);
+        letter-spacing: 0.15px;
+        color: #FFF;
     }
 }
 
@@ -867,7 +1023,7 @@ body {
 }
 
 @media(max-width: 767px) {
-    .intro, .services, .testimonials, .benefits, .discount, .blog {
+    .intro, .services, .testimonials, .benefits, .discount, .blog, .footer {
         padding: 50px 0;
     }
 }
